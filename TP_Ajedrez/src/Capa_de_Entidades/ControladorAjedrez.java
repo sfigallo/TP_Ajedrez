@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import Capa_de_Datos.DataJugadores;
 import Capa_de_Datos.DataPartidas;
-import Capa_de_Datos.FactoriaConexion;
 
 public class ControladorAjedrez {
 	private static Partida partidaActual;

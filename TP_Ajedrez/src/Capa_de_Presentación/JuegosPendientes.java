@@ -1,6 +1,5 @@
 package Capa_de_Presentación;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,7 +12,6 @@ import Capa_de_Entidades.Partida;
 
 import java.awt.Label;
 import java.awt.TextField;
-import java.awt.ScrollPane;
 import java.util.ArrayList;
 
 import javax.swing.JScrollPane;
@@ -25,6 +23,9 @@ import java.awt.event.MouseEvent;
 
 public class JuegosPendientes extends JFrame {
 
+	/*Variable AUTO-GENERADA para eliminar advertencias.*/
+	private static final long serialVersionUID = 1L;
+	/*Variable AUTO-GENERADA para eliminar advertencias.*/
 	static ControladorAjedrez caj= new ControladorAjedrez();
 	private JPanel contentPane;
 	private JScrollPane scrollPane;

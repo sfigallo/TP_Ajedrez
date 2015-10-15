@@ -1,32 +1,22 @@
 package Capa_de_Presentación;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JPopupMenu;
-
-import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Choice;
-import java.awt.List;
-
-import javax.swing.JComboBox;
-
 import java.awt.Label;
-
-import javax.swing.JButton;
-
-import Capa_de_Entidades.Jugador;
 
 import java.awt.TextField;
 import java.awt.Button;
 
 public class Inicial extends JFrame {
 
+	/*Variable AUTO-GENERADA para eliminar advertencias.*/
+	private static final long serialVersionUID = 1L;
+	/*Variable AUTO-GENERADA para eliminar advertencias.*/
 	private JPanel contentPane;
 	private TextField dnij1textField;
 	private TextField dnij2textField;
@@ -114,23 +104,5 @@ public class Inicial extends JFrame {
 		});
 		registrarButton.setBounds(10, 136, 188, 22);
 		contentPane.add(registrarButton);
-	}
-
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 	}
 }

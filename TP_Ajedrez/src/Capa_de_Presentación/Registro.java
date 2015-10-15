@@ -1,6 +1,5 @@
 package Capa_de_Presentación;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -20,6 +19,9 @@ import java.awt.event.ActionEvent;
 
 public class Registro extends JFrame {
 
+	/*Variable AUTO-GENERADA para eliminar advertencias.*/
+	private static final long serialVersionUID = 1L;
+	/*Variable AUTO-GENERADA para eliminar advertencias.*/
 	private JPanel contentPane;
 	private TextField dnitextField;
 	private TextField nombretextField;

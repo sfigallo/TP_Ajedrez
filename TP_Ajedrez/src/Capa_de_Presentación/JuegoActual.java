@@ -1,6 +1,5 @@
 package Capa_de_Presentación;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,18 +12,14 @@ import java.awt.Color;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JInternalFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
-
 import java.awt.Button;
 
 import javax.swing.table.DefaultTableModel;
 
-import Capa_de_Datos.DataJugadores;
 import Capa_de_Entidades.ControladorAjedrez;
 import Capa_de_Entidades.Jugador;
 import Capa_de_Entidades.Pieza;
@@ -33,16 +28,11 @@ import Capa_de_Entidades.Posicion;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JTextPane;
-import javax.swing.JTextArea;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.UIManager;
-
 public class JuegoActual extends JFrame {
 	
+	/*Variable AUTO-GENERADA para eliminar advertencias.*/
+	private static final long serialVersionUID = 1L;
+	/*Variable AUTO-GENERADA para eliminar advertencias.*/
 	private static int id;
 	private static Pieza[] piezas;
 	private static ControladorAjedrez caj = new ControladorAjedrez();
