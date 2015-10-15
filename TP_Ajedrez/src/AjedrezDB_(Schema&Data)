@@ -1,0 +1,137 @@
+-- MySQL dump 10.13  Distrib 5.6.24, for Win32 (x86)
+--
+-- Host: 127.0.0.1    Database: ajedrezdb
+-- ------------------------------------------------------
+-- Server version	5.5.44
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `jugadores`
+--
+
+DROP TABLE IF EXISTS `jugadores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jugadores` (
+  `dni` int(11) NOT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `apellido` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`dni`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jugadores`
+--
+
+LOCK TABLES `jugadores` WRITE;
+/*!40000 ALTER TABLE `jugadores` DISABLE KEYS */;
+INSERT INTO `jugadores` VALUES (0,'Partida','Nueva'),(11111111,'Manuel','Perez'),(22222222,'Jose','Gonzalez'),(37573132,'Ramiro','Jimenez'),(38533128,'Sofia','Figallo');
+/*!40000 ALTER TABLE `jugadores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `partidas`
+--
+
+DROP TABLE IF EXISTS `partidas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `partidas` (
+  `idPartida` int(11) NOT NULL AUTO_INCREMENT,
+  `dniJugador1` int(11) DEFAULT NULL,
+  `dniJugador2` int(11) DEFAULT NULL,
+  `turno` varchar(1) NOT NULL DEFAULT 'b',
+  PRIMARY KEY (`idPartida`),
+  KEY `dniJugador1_idx` (`dniJugador1`),
+  KEY `dniJugador2_idx` (`dniJugador2`),
+  CONSTRAINT `dniJugador1` FOREIGN KEY (`dniJugador1`) REFERENCES `jugadores` (`dni`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `dniJugador2` FOREIGN KEY (`dniJugador2`) REFERENCES `jugadores` (`dni`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `partidas`
+--
+
+LOCK TABLES `partidas` WRITE;
+/*!40000 ALTER TABLE `partidas` DISABLE KEYS */;
+INSERT INTO `partidas` VALUES (0,0,0,'b');
+/*!40000 ALTER TABLE `partidas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `piezas`
+--
+
+DROP TABLE IF EXISTS `piezas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `piezas` (
+  `idPieza` int(11) NOT NULL,
+  `nombre` varchar(1) DEFAULT NULL,
+  `color` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`idPieza`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `piezas`
+--
+
+LOCK TABLES `piezas` WRITE;
+/*!40000 ALTER TABLE `piezas` DISABLE KEYS */;
+INSERT INTO `piezas` VALUES (1,'p','b'),(2,'p','b'),(3,'p','b'),(4,'p','b'),(5,'p','b'),(6,'p','b'),(7,'p','b'),(8,'p','b'),(9,'p','n'),(10,'p','n'),(11,'p','n'),(12,'p','n'),(13,'p','n'),(14,'p','n'),(15,'p','n'),(16,'p','n'),(17,'r','b'),(18,'r','n'),(19,'d','b'),(20,'d','n'),(21,'a','b'),(22,'a','b'),(23,'a','n'),(24,'a','n'),(25,'c','b'),(26,'c','b'),(27,'c','n'),(28,'c','n'),(29,'t','b'),(30,'t','b'),(31,'t','n'),(32,'t','n');
+/*!40000 ALTER TABLE `piezas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `piezas_partidas`
+--
+
+DROP TABLE IF EXISTS `piezas_partidas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `piezas_partidas` (
+  `idPieza` int(11) NOT NULL,
+  `idPartida` int(11) NOT NULL,
+  `estado` int(1) NOT NULL DEFAULT '1',
+  `letra` varchar(1) DEFAULT NULL,
+  `numero` int(1) DEFAULT NULL,
+  PRIMARY KEY (`idPieza`,`idPartida`),
+  KEY `idPartida_idx` (`idPartida`),
+  CONSTRAINT `idPartida` FOREIGN KEY (`idPartida`) REFERENCES `partidas` (`idPartida`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `idPieza` FOREIGN KEY (`idPieza`) REFERENCES `piezas` (`idPieza`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `piezas_partidas`
+--
+
+LOCK TABLES `piezas_partidas` WRITE;
+/*!40000 ALTER TABLE `piezas_partidas` DISABLE KEYS */;
+INSERT INTO `piezas_partidas` VALUES (1,0,1,'a',2),(2,0,1,'b',2),(3,0,1,'c',2),(4,0,1,'d',2),(5,0,1,'e',2),(6,0,1,'f',2),(7,0,1,'g',2),(8,0,1,'h',2),(9,0,1,'a',7),(10,0,1,'b',7),(11,0,1,'c',7),(12,0,1,'d',7),(13,0,1,'e',7),(14,0,1,'f',7),(15,0,1,'g',7),(16,0,1,'h',7),(17,0,1,'e',1),(18,0,1,'e',8),(19,0,1,'d',1),(20,0,1,'d',8),(21,0,1,'c',1),(22,0,1,'f',1),(23,0,1,'c',8),(24,0,1,'f',8),(25,0,1,'b',1),(26,0,1,'g',1),(27,0,1,'b',8),(28,0,1,'g',8),(29,0,1,'a',1),(30,0,1,'h',1),(31,0,1,'a',8),(32,0,1,'h',8);
+/*!40000 ALTER TABLE `piezas_partidas` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-10-15 12:48:39
