@@ -106,6 +106,7 @@ public class JuegosPendientes extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				int nroPartida = Integer.parseInt(nropartidatextField.getText());
+				JuegoActual.invocador(j1.getDni(), j2.getDni(), nroPartida);
 				
 			}
 		});

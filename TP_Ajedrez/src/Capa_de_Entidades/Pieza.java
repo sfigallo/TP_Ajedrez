@@ -5,6 +5,7 @@ public abstract class Pieza {
 	private String color="0";
 	private Posicion posicion;
 	private boolean estado = true;
+	private char nombre;
 	public int getIdPieza() {
 		return idPieza;
 	}
@@ -30,10 +31,17 @@ public abstract class Pieza {
 		this.estado = estado;
 	}
 	public abstract boolean isMovimientoValido(Posicion p, Pieza piezaEnP);
+
+	public char getNombre(){
+		return nombre;
+	}
 	public void moverA(Posicion p){
 		this.posicion= p;
 		
 		//Falta incluír acá la parte que hace que cambie en la BD
+	}
+	public void setNombre(char nombre) {
+		this.nombre = nombre;
 	}
 	
 	

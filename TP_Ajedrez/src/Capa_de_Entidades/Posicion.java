@@ -23,5 +23,8 @@ public class Posicion {
 			else return false;
 		else return false;	 
 	}
+	public boolean equals(Posicion p){
+		return (this.getLetra() == p.getLetra()) && (this.getNumero()==p.getNumero());
+	}
 	
 }

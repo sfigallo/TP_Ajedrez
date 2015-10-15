@@ -63,6 +63,49 @@ public class Partida {
 	public void setTurno(char turno) {
 		this.turno = turno;
 	}
+
+	public void acomodarPiezas() {
+		for (Pieza pieza : piezas) {
+			pieza.setPosicion(DataPartidas.getPosicion(pieza.getIdPieza(), idPartida));
+		}
+		
+	}
+	public void acomodarPiezasPosicionInicial(){
+		for (Pieza pieza : piezas) {
+			pieza.setPosicion(DataPartidas.getPosicion(pieza.getIdPieza(), 0));
+		}
+	}
+
+	public Pieza buscarPiezaEn(Posicion p) {
+		Pieza piezaenp = null;
+		for (Pieza pieza : piezas) {
+			if(pieza.getPosicion().equals(p)){
+				piezaenp=pieza;
+			}
+		}
+		return piezaenp;
+	}
+
+	public Pieza buscarPieza(int idPieza) {
+		Pieza piezabuscada = null;
+		for (Pieza pieza : piezas) {
+			if(pieza.getIdPieza()==idPieza){
+				piezabuscada = pieza;
+				break;
+			}
+		}
+		return piezabuscada;
+	}
+
+	public void updatePieza(Pieza pi) {
+		for (Pieza pieza : piezas) {
+			if(pi.getIdPieza()==pieza.getIdPieza()){
+				pieza = pi;
+				break;
+			}
+		}
+		
+	}
 	
 	
 	

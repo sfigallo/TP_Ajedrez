@@ -97,7 +97,8 @@ public class Inicial extends JFrame {
 		nuevaPartidaButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				Juego.invocador(Integer.parseInt(dnij1textField.getText()), Integer.parseInt(dnij2textField.getText()));
+				int idPartida = 0;
+				JuegoActual.invocador(Integer.parseInt(dnij1textField.getText()), Integer.parseInt(dnij2textField.getText()), idPartida);
 				frame.setVisible(false);
 			}
 		});
