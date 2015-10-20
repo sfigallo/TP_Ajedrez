@@ -1,5 +1,5 @@
 package Capa_de_Entidades;
-//Sofi estuvo aquí
+//Rami estuvo aquí
 public class Jugador {
 	private int dni;
 	private String nombre;
